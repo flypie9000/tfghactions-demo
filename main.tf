@@ -15,7 +15,7 @@ terraform {
 }
 
 provider "alicloud" {
-  region     = "ap-southeast-3"
+  region = "ap-southeast-3"
 }
 
 data "alicloud_images" "default" {
@@ -47,13 +47,13 @@ resource "alicloud_security_group" "sec_group" {
 
 resource "alicloud_instance" "ecs_instance" {
 
-  count = 1
-  security_groups   = alicloud_security_group.sec_group.*.id
+  count                      = 1
+  security_groups            = alicloud_security_group.sec_group.*.id
   instance_type              = "ecs.n4.large"
   system_disk_category       = "cloud_efficiency"
   system_disk_name           = "ecs-system-disk"
   system_disk_description    = "System Disk for ECS"
-  system_disk_size     = 40
+  system_disk_size           = 40
   image_id                   = data.alicloud_images.default.images[0].id
   instance_name              = "ecs-instance-demo"
   vswitch_id                 = alicloud_vswitch.vswitch.id
