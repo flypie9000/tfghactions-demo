@@ -47,7 +47,6 @@ resource "alicloud_security_group" "sec_group" {
 
 resource "alicloud_instance" "ecs_instance" {
 
-  #count                     = 1
   security_groups            = alicloud_security_group.sec_group.*.id
   instance_type              = "ecs.n4.large"
   system_disk_category       = "cloud_efficiency"
