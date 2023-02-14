@@ -52,7 +52,7 @@ resource "alicloud_instance" "ecs_instance" {
   system_disk_category       = "cloud_efficiency"
   system_disk_name           = "ecs-system-disk"
   system_disk_description    = "System Disk for ECS"
-  system_disk_size           = 60
+  system_disk_size           = 80
   image_id                   = data.alicloud_images.default.images[0].id
   instance_name              = "ecs-instance-demo"
   vswitch_id                 = alicloud_vswitch.vswitch.id
